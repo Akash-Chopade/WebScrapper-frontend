@@ -4,6 +4,7 @@ import WeatherCard from "./components/WeatherCard";
 import SearchForm from "./components/SearchForm";
 import ThemeToggle from "./components/ThemeToggle";
 import { useTheme } from "./contexts/ThemeContext";
+import API_CONFIG from "./config/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -18,7 +19,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/weather/${encodeURIComponent(city)}`
+        `${API_CONFIG.BASE_URL}/api/weather/${encodeURIComponent(city)}`
       );
       const data = await response.json();
 

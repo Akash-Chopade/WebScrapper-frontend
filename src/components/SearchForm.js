@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import API_CONFIG from "../config/api";
 
 const SearchForm = ({ onSearch, loading }) => {
   const [city, setCity] = useState("");
@@ -13,7 +14,7 @@ const SearchForm = ({ onSearch, loading }) => {
       if (city.length >= 2) {
         try {
           const response = await fetch(
-            `http://127.0.0.1:5000/api/cities/search?q=${encodeURIComponent(
+            `${API_CONFIG.BASE_URL}/api/cities/search?q=${encodeURIComponent(
               city
             )}`
           );
